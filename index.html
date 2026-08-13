@@ -159,6 +159,49 @@
     margin-bottom: 3px;
     line-height: 1.3;
   }
+
+  /* Video thumbnail — 16:9 crop, so the 4:3 letterboxed source loses its bars */
+  .thumb {
+    display: block;
+    position: relative;
+    aspect-ratio: 16 / 9;
+    margin: -22px -22px 16px;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+    background: #14151f;
+  }
+  .thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .3s ease, opacity .15s;
+    opacity: 0.88;
+  }
+  .thumb:hover img { transform: scale(1.04); opacity: 1; }
+  .thumb .play {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(43, 45, 66, 0.78);
+    border: 2px solid rgba(237, 242, 244, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .15s;
+  }
+  .thumb:hover .play { background: var(--accent); }
+  /* CSS triangle, nudged right to sit optically centred in the circle */
+  .thumb .play::after {
+    content: "";
+    border-style: solid;
+    border-width: 9px 0 9px 15px;
+    border-color: transparent transparent transparent #fff;
+    margin-left: 4px;
+  }
   .card .meta {
     font-size: 0.8rem;
     color: var(--muted);
@@ -263,8 +306,6 @@
       </p>
       <div class="facts">
         <span class="fact">Tbilisi, Georgia · UTC+4</span>
-        <span class="fact">Invoicing in USD / EUR</span>
-        <span class="fact">7 years with US Pacific teams</span>
         <span class="fact">English fluent · Russian native</span>
       </div>
       <div class="links">
@@ -289,6 +330,10 @@
     <div class="grid">
 
       <article class="card">
+        <a class="thumb" href="https://www.youtube.com/watch?v=e2zOWJRMvJ8" aria-label="Watch Travel Crush gameplay on YouTube">
+          <img src="thumbs/travel-crush.jpg" alt="Travel Crush gameplay" loading="lazy">
+          <span class="play" aria-hidden="true"></span>
+        </a>
         <h3>Travel Crush</h3>
         <div class="meta">BebopBee · Match-3 mobile game · 1M+ downloads</div>
         <div class="tags">
@@ -308,6 +353,10 @@
       </article>
 
       <article class="card">
+        <a class="thumb" href="https://www.youtube.com/watch?v=XPjxf_AZ9sg" aria-label="Watch Super Jump League gameplay on YouTube">
+          <img src="thumbs/super-jump-league.jpg" alt="Super Jump League gameplay" loading="lazy">
+          <span class="play" aria-hidden="true"></span>
+        </a>
         <h3>Super Jump League</h3>
         <div class="meta">BebopBee · Real-time multiplayer PvP</div>
         <div class="tags">
@@ -340,6 +389,10 @@
       </article>
 
       <article class="card">
+        <a class="thumb" href="https://www.youtube.com/watch?v=aOR0-VEUKw8" aria-label="Watch Stellar Age gameplay on YouTube">
+          <img src="thumbs/stellar-age.jpg" alt="Stellar Age gameplay" loading="lazy">
+          <span class="play" aria-hidden="true"></span>
+        </a>
         <h3>Stellar Age</h3>
         <div class="meta">Crazy Panda · Mobile MMO strategy</div>
         <div class="tags">
@@ -354,6 +407,20 @@
         <div class="foot"><a class="repo-link" href="https://www.youtube.com/watch?v=aOR0-VEUKw8">Watch gameplay</a></div>
       </article>
 
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PET PROJECTS ===================== -->
+<section id="pet-projects">
+  <div class="wrap">
+    <h2>Pet Projects</h2>
+    <p class="section-lede">
+      Things I built to answer a question rather than to ship — where I go to try an architecture
+      before it matters.
+    </p>
+    <div class="grid">
+
       <article class="card">
         <h3>MMO Architecture Prototype</h3>
         <div class="meta">Own practice · 1,000 concurrent players</div>
@@ -362,7 +429,7 @@
         </div>
         <ul>
           <li>Prototyped an MMO architecture sustaining 1,000 concurrent players on a custom ECS backend server with a Unity ECS client</li>
-          <li>Also in this period: a match-3 vertical slice for the Banana Games startup, from empty project to playable</li>
+          <li>Built in 32 hours as an agent-driven coding experiment, written up in full</li>
         </ul>
         <div class="foot"><a class="repo-link" href="https://medium.com/@chaincastsystems/vibe-coding-experiment-building-a-1000-player-mmo-prototype-in-32-hours-3719eb1f5bb3">Read the write-up</a></div>
       </article>
