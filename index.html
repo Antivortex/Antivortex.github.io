@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anton Vikharev — Unity &amp; AI-Assisted Engineer</title>
+<meta name="description" content="Unity gameplay and systems engineer — 12 years in software, 7 remote with a US studio. Deterministic netcode, custom 2D physics, game AI, live-ops. Now building agent-first.">
+<meta property="og:title" content="Anton Vikharev — Unity &amp; AI-Assisted Engineer">
+<meta property="og:description" content="Unity gameplay and systems engineer. Shipped 4 commercial games including Travel Crush (2M+ downloads). Now building agent-first.">
+<meta property="og:type" content="website">
+<style>
+  :root {
+    --navy: #2B2D42;
+    --navy-deep: #212234;
+    --ink: #EDF2F4;
+    --muted: #8D99AE;
+    --line: rgba(141, 153, 174, 0.22);
+    --accent: #6C63FF;
+    --accent-soft: #a78bfa;
+    --card: #32344d;
+    --max: 1080px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: "Avenir Next", "Avenir", "Helvetica Neue", -apple-system,
+                 BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif;
+    background: var(--navy-deep);
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--accent-soft); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+  /* ---------------- Hero ---------------- */
+  .hero {
+    background:
+      radial-gradient(900px 420px at 80% -10%, rgba(108, 99, 255, 0.28), transparent 62%),
+      var(--navy);
+    border-bottom: 1px solid var(--line);
+    padding: 72px 0 60px;
+  }
+  .hero-inner {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .hero img {
+    width: 168px;
+    height: 168px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--accent);
+    flex-shrink: 0;
+  }
+  .hero-text { flex: 1 1 380px; min-width: 0; }
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 2.9rem);
+    line-height: 1.12;
+    letter-spacing: -0.5px;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .hero .role {
+    color: var(--accent-soft);
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    margin-bottom: 14px;
+  }
+  .hero .pitch {
+    color: #cdd1d9;
+    font-size: 1.05rem;
+    max-width: 60ch;
+    margin-bottom: 20px;
+  }
+
+  .facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 22px;
+  }
+  .fact {
+    font-size: 0.82rem;
+    color: var(--ink);
+    background: rgba(108, 99, 255, 0.14);
+    border: 1px solid rgba(108, 99, 255, 0.4);
+    border-radius: 999px;
+    padding: 4px 12px;
+  }
+
+  .links { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn {
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 9px 18px;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    color: var(--ink);
+    transition: border-color .15s, background .15s;
+  }
+  .btn:hover { text-decoration: none; border-color: var(--accent); background: rgba(108,99,255,.12); }
+  .btn.primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+  .btn.primary:hover { background: #5b52f0; }
+
+  /* ---------------- Sections ---------------- */
+  section { padding: 60px 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type { border-bottom: none; }
+
+  h2 {
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .section-lede {
+    color: var(--muted);
+    font-size: 0.98rem;
+    max-width: 70ch;
+    margin-bottom: 28px;
+  }
+
+  /* ---------------- Cards ---------------- */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 18px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    transition: border-color .15s, transform .15s;
+  }
+  .card:hover { border-color: rgba(108, 99, 255, 0.55); transform: translateY(-2px); }
+  .card h3 {
+    font-size: 1.08rem;
+    color: #fff;
+    margin-bottom: 3px;
+    line-height: 1.3;
+  }
+  .card .meta {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .card p { font-size: 0.92rem; color: #cdd1d9; margin-bottom: 14px; }
+  .card ul { margin: 0 0 14px 0; padding-left: 18px; }
+  .card li { font-size: 0.9rem; color: #cdd1d9; margin-bottom: 5px; }
+  .card .foot { margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+  .tag {
+    font-size: 0.72rem;
+    letter-spacing: 0.3px;
+    color: var(--accent-soft);
+    border: 1px solid rgba(167, 139, 250, 0.35);
+    border-radius: 5px;
+    padding: 2px 8px;
+  }
+
+  .repo-link {
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+  .repo-link::after { content: " →"; }
+
+  /* ---------------- Experience ---------------- */
+  .job {
+    border-left: 2px solid var(--line);
+    padding: 0 0 26px 22px;
+    position: relative;
+  }
+  .job:last-child { padding-bottom: 0; }
+  .job::before {
+    content: "";
+    position: absolute;
+    left: -6px; top: 8px;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .job .head {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: baseline;
+  }
+  .job .title { font-size: 1.02rem; font-weight: 700; color: #fff; }
+  .job .dates { font-size: 0.82rem; color: var(--muted); white-space: nowrap; }
+  .job .org { font-size: 0.88rem; color: var(--accent-soft); font-weight: 600; margin-bottom: 6px; }
+  .job p { font-size: 0.92rem; color: #cdd1d9; }
+
+  /* ---------------- Skills ---------------- */
+  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  .skill h3 {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--accent-soft);
+    margin-bottom: 6px;
+  }
+  .skill p { font-size: 0.9rem; color: #cdd1d9; }
+
+  /* ---------------- Footer ---------------- */
+  footer {
+    background: var(--navy);
+    border-top: 1px solid var(--line);
+    padding: 48px 0 40px;
+    text-align: center;
+  }
+  footer h2 { margin-bottom: 12px; }
+  footer p { color: var(--muted); font-size: 0.95rem; margin-bottom: 22px; }
+  footer .links { justify-content: center; }
+  .colophon {
+    margin-top: 32px;
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+
+  @media (max-width: 640px) {
+    .hero { padding: 48px 0 40px; }
+    .hero img { width: 120px; height: 120px; }
+    section { padding: 44px 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <div class="wrap hero-inner">
+    <img src="photo.jpeg" alt="Anton Vikharev">
+    <div class="hero-text">
+      <h1>Anton Vikharev</h1>
+      <div class="role">Unity Senior Engineer · AI-Assisted Engineer</div>
+      <p class="pitch">
+        12 years in software, 7 of them remote with a US studio in Menlo Park. Shipped 4 commercial
+        games — including <strong>Travel Crush</strong>, 2M+ downloads — plus a cross-platform Unity
+        SDK. I work in the parts of Unity that are hard to hire for: deterministic simulation,
+        prediction netcode, game AI, and live-ops content systems.
+      </p>
+      <div class="facts">
+        <span class="fact">Tbilisi, Georgia · UTC+4</span>
+        <span class="fact">Invoicing in USD / EUR</span>
+        <span class="fact">7 years with US Pacific teams</span>
+        <span class="fact">English fluent · Russian native</span>
+      </div>
+      <div class="links">
+        <a class="btn primary" href="mailto:chaincastsystems@gmail.com">Get in touch</a>
+        <a class="btn" href="Anton_Vikharev_Resume.pdf">Résumé (PDF)</a>
+        <a class="btn" href="https://github.com/Antivortex">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/antivortex/">LinkedIn</a>
+        <a class="btn" href="https://medium.com/@chaincastsystems">Blog</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== SHIPPED WORK ===================== -->
+<section id="shipped">
+  <div class="wrap">
+    <h2>Shipped Work</h2>
+    <p class="section-lede">
+      Commercial titles and products I built or led. Source is proprietary — these are the systems
+      I owned end to end, from product requirement through architecture to live players.
+    </p>
+    <div class="grid">
+
+      <article class="card">
+        <h3>Travel Crush</h3>
+        <div class="meta">BebopBee · Match-3 mobile game · 2M+ downloads</div>
+        <div class="tags">
+          <span class="tag">Unity</span><span class="tag">C#</span><span class="tag">Python</span>
+          <span class="tag">Addressables</span><span class="tag">Redis</span><span class="tag">BrainCloud</span>
+        </div>
+        <ul>
+          <li>Built the core match-3 engine and an in-editor level designer, so designers could play and tune levels without leaving Unity</li>
+          <li>Dynamic difficulty system that auto-balances levels against player skill</li>
+          <li>AI-driven automated level playtesting for bug detection and difficulty analytics</li>
+          <li>Live-ops event system enabling no-code content delivery</li>
+          <li>Custom Addressables layer for grouping and background-downloading asset bundles</li>
+          <li>Social stack across Unity client and Python backend: friends graph, notifications, Redis leaderboards, player gifts</li>
+          <li>As tech lead: team of 4, plus a backend migration from Python/Tornado to BrainCloud BaaS</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Super Jump League</h3>
+        <div class="meta">BebopBee · Real-time multiplayer PvP</div>
+        <div class="tags">
+          <span class="tag">Unity</span><span class="tag">C#</span><span class="tag">Photon</span>
+          <span class="tag">Netcode</span><span class="tag">Deterministic physics</span><span class="tag">Game AI</span>
+        </div>
+        <ul>
+          <li>Wrote a deterministic 2D physics engine from scratch — quad-to-quad, quad-to-tilemap and quad-to-circle collisions — as the basis for reproducible networked gameplay</li>
+          <li>Networking engine with client-side prediction and latency compensation</li>
+          <li>A* pathfinding with behaviour trees for bot AI, fully synchronized across clients</li>
+          <li>Cheat detection via Photon server plugins; lobby with bots backfilling low-population hours</li>
+          <li>Cut build size by 50% in one week; drove a bug-free soft launch</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Web3 SaaS Unity SDK</h3>
+        <div class="meta">Ankr · Cross-platform SDK, incl. WebGL</div>
+        <div class="tags">
+          <span class="tag">Unity</span><span class="tag">C#</span><span class="tag">WebGL</span>
+          <span class="tag">ASP.NET Core</span><span class="tag">PostgreSQL</span><span class="tag">RabbitMQ</span>
+        </div>
+        <ul>
+          <li>Sole Unity engineer — shipped the SDK across platforms including WebGL, one month ahead of platform launch</li>
+          <li>Integrated third-party APIs for cross-platform transaction processing inside the SDK</li>
+          <li>Contributed to ASP.NET backend services on PostgreSQL, EF Core and RabbitMQ after SDK delivery</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Stellar Age</h3>
+        <div class="meta">Crazy Panda · Mobile MMO strategy</div>
+        <div class="tags">
+          <span class="tag">Unity</span><span class="tag">C#</span>
+          <span class="tag">Procedural generation</span><span class="tag">Editor tooling</span>
+        </div>
+        <ul>
+          <li>Procedural galaxy generation for 100,000+ planets</li>
+          <li>Quad-tree rendering system for smooth infinite zoom, galaxy view down to planet view</li>
+          <li>Editor extensions for validating game-design math</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>AI-Native CRM</h3>
+        <div class="meta">TutorEge · Production CRM for an offline education business</div>
+        <div class="tags">
+          <span class="tag">Claude Code</span><span class="tag">Next.js</span><span class="tag">Express</span>
+          <span class="tag">PostgreSQL</span><span class="tag">Docker</span>
+        </div>
+        <ul>
+          <li>Leading an AI-native build from stakeholder discovery through delivery, with a team of 3 junior engineers working alongside agents</li>
+          <li>Orchestrate Claude Code agents under spec-first workflows with automated review and regression gates</li>
+          <li>Ran discovery with end users to design UI/UX around existing business processes, rather than forcing the business to adapt to the software</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>MMO Architecture Prototype</h3>
+        <div class="meta">Own practice · 1,000 concurrent players</div>
+        <div class="tags">
+          <span class="tag">Unity ECS / DOTS</span><span class="tag">C#</span><span class="tag">Custom server</span>
+        </div>
+        <ul>
+          <li>Prototyped an MMO architecture sustaining 1,000 concurrent players on a custom ECS backend server with a Unity ECS client</li>
+          <li>Also in this period: a match-3 vertical slice for the Banana Games startup, from empty project to playable</li>
+        </ul>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== OPEN SOURCE ===================== -->
+<section id="code">
+  <div class="wrap">
+    <h2>Code You Can Read</h2>
+    <p class="section-lede">
+      Public repositories — architecture exercises, Unity tools and pet projects. These are the ones
+      where you can go look at how I actually structure code.
+    </p>
+    <div class="grid">
+
+      <article class="card">
+        <h3>Battle Simulator — architecture refactor</h3>
+        <div class="meta">Unity · C# · engineering test task</div>
+        <p>
+          An army-vs-army simulator taken apart and rebuilt: rendering split from core gameplay so
+          simulation is unit-testable and open to future prediction for multiplayer, framerate-independent
+          motion, pooled spawning, cached army-center math, and shared materials per colour. Extended
+          from two armies to N with enemy retargeting on wipe.
+        </p>
+        <div class="tags">
+          <span class="tag">Simulation/render split</span><span class="tag">Pooling</span>
+          <span class="tag">Unit AI</span><span class="tag">Optimization</span>
+        </div>
+        <div class="foot"><a class="repo-link" href="https://github.com/Antivortex/decetranland-test">Read the code</a></div>
+      </article>
+
+      <article class="card">
+        <h3>Unity Core / MVP scaffold</h3>
+        <div class="meta">Unity · C# · ShaderLab / HLSL</div>
+        <p>
+          A small clean-architecture skeleton for a Unity game: a hand-rolled DI context with
+          initializable/releasable lifetimes, assembly-definition boundaries between Core, EngineCore
+          and Game, a GameObject pool, a resource manager behind an interface, and an MVP popup system
+          driven by presenters and factories.
+        </p>
+        <div class="tags">
+          <span class="tag">DI container</span><span class="tag">asmdef layering</span>
+          <span class="tag">MVP UI</span><span class="tag">Shaders</span>
+        </div>
+        <div class="foot"><a class="repo-link" href="https://github.com/Antivortex/omg-test">Read the code</a></div>
+      </article>
+
+      <article class="card">
+        <h3>Dialogue System</h3>
+        <div class="meta">Unity Editor extension · C#</div>
+        <p>
+          A node-graph editor for branching cut-scene dialogue, built as a Unity Editor extension.
+          Creates, edits and saves native Unity assets holding a tree of editable text nodes — drop-in
+          for a visual novel or RPG project.
+        </p>
+        <div class="tags">
+          <span class="tag">Editor tooling</span><span class="tag">Node graph</span>
+          <span class="tag">ScriptableObjects</span>
+        </div>
+        <div class="foot"><a class="repo-link" href="https://github.com/Antivortex/Dialogue-System">Read the code</a></div>
+      </article>
+
+      <article class="card">
+        <h3>Top-Down Character Controller</h3>
+        <div class="meta">Unity · C# · with showcase video</div>
+        <p>
+          A top-down action character controller, with the extra work needed to reconcile direct
+          control with the Unity physics system and stop motion glitching at contact.
+        </p>
+        <div class="tags"><span class="tag">Character control</span><span class="tag">Physics</span></div>
+        <div class="foot">
+          <a class="repo-link" href="https://github.com/Antivortex/Top-Down-Prototype">Read the code</a>
+          <a class="repo-link" href="https://www.youtube.com/watch?v=G8uMDTXCjkY">Watch it run</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>Third-Person Camera Controller</h3>
+        <div class="meta">Unity · C# · with showcase video</div>
+        <p>
+          A third-person camera centred on a target point, with elastic rotation constraints that keep
+          framing stable without fighting the player.
+        </p>
+        <div class="tags"><span class="tag">Camera</span><span class="tag">Constraint math</span></div>
+        <div class="foot">
+          <a class="repo-link" href="https://github.com/Antivortex/Third-Person-Camera-Controller">Read the code</a>
+          <a class="repo-link" href="https://www.youtube.com/watch?v=WeKI0ZmaQ2s">Watch it run</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>.NET / Unity performance studies</h3>
+        <div class="meta">C# · test-driven</div>
+        <p>
+          Working notes in code on the allocation-sensitive corners of C#: a stack built on
+          <code>Span&lt;T&gt;</code>, span extensions, and concurrency samples — each with tests, under
+          assembly definitions.
+        </p>
+        <div class="tags"><span class="tag">Span&lt;T&gt;</span><span class="tag">Concurrency</span><span class="tag">Zero-alloc</span></div>
+        <div class="foot"><a class="repo-link" href="https://github.com/Antivortex/dotnet-studies">Read the code</a></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SECURITY ===================== -->
+<section id="security">
+  <div class="wrap">
+    <h2>Security Research</h2>
+    <p class="section-lede">
+      A side thread of the same instinct: read the system closely enough to find where it breaks.
+    </p>
+    <div class="grid">
+      <article class="card">
+        <h3>UMA Protocol DVM — DoS vulnerability</h3>
+        <div class="meta">$10,000 bug bounty · Polymarket's oracle</div>
+        <p>
+          Found a high-severity denial-of-service vulnerability in the schedule queue of UMA's DVM
+          contracts — code that had already been audited by top security firms. Published with a
+          Foundry proof-of-concept and a full write-up.
+        </p>
+        <div class="tags"><span class="tag">Solidity</span><span class="tag">Foundry</span><span class="tag">DoS</span></div>
+        <div class="foot">
+          <a class="repo-link" href="https://github.com/Antivortex/uma-vuln-poc">PoC repo</a>
+          <a class="repo-link" href="https://github.com/Antivortex/audits-and-bounties">Write-up</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>Sui crowdfunding contracts</h3>
+        <div class="meta">Move · Sui blockchain</div>
+        <p>
+          A contract suite implementing a mintable CONVO token and a USDC-funded crowdfunding system:
+          campaigns that complete or refund, fees routed to a staking contract, revenue distributed
+          proportionally across stakes, all behind role-based authorization.
+        </p>
+        <div class="tags"><span class="tag">Move</span><span class="tag">Staking</span><span class="tag">RBAC</span></div>
+        <div class="foot"><a class="repo-link" href="https://github.com/Antivortex/sui-crowdfunding-contracts">Read the code</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SKILLS ===================== -->
+<section id="skills">
+  <div class="wrap">
+    <h2>Skills</h2>
+    <p class="section-lede">Where the depth is.</p>
+    <div class="skills">
+      <div class="skill">
+        <h3>Engine &amp; Languages</h3>
+        <p>Unity, C#, .NET, C++, Python</p>
+      </div>
+      <div class="skill">
+        <h3>Multiplayer &amp; Simulation</h3>
+        <p>Client-side prediction, latency compensation, deterministic physics, authoritative servers, Photon (PUN + server plugins), ECS / DOTS, cheat detection</p>
+      </div>
+      <div class="skill">
+        <h3>Gameplay &amp; AI</h3>
+        <p>Behaviour trees, A* pathfinding, procedural generation, custom shaders, Spine, DOTween, game-design math tooling</p>
+      </div>
+      <div class="skill">
+        <h3>Performance &amp; Tooling</h3>
+        <p>Unity Profiler, build-size and memory optimization, Addressables and AssetBundles, custom Editor tooling, Zenject, Git</p>
+      </div>
+      <div class="skill">
+        <h3>AI-Assisted Engineering</h3>
+        <p>Claude Code, multi-agent orchestration, spec-driven development, automated code review and regression gates</p>
+      </div>
+      <div class="skill">
+        <h3>Backend</h3>
+        <p>ASP.NET Core, EF Core, PostgreSQL, Redis, RabbitMQ, Node / Express, Docker, BrainCloud BaaS</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== EXPERIENCE ===================== -->
+<section id="experience">
+  <div class="wrap">
+    <h2>Experience</h2>
+    <p class="section-lede">The full version lives in the résumé PDF.</p>
+
+    <div class="job">
+      <div class="head"><span class="title">AI-Assisted Engineer</span><span class="dates">Mar 2026 – Present</span></div>
+      <div class="org">TutorEge · Saint Petersburg</div>
+      <p>Leading an AI-native production CRM build, from stakeholder discovery through delivery.</p>
+    </div>
+
+    <div class="job">
+      <div class="head"><span class="title">Independent Unity &amp; Backend Engineer</span><span class="dates">Aug 2024 – Mar 2026</span></div>
+      <div class="org">Own practice — contract engineering · Remote</div>
+      <p>MMO architecture prototyping, a match-3 vertical slice for a startup, an AI-assisted engineering practice for C#/Unity codebases, and a $10k smart-contract bug bounty.</p>
+    </div>
+
+    <div class="job">
+      <div class="head"><span class="title">Unity Tech Lead → Fullstack Engineer → Software Engineer</span><span class="dates">Jul 2016 – Aug 2024</span></div>
+      <div class="org">BebopBee, Inc. · Menlo Park, CA — fully remote · 7 years, three tenures</div>
+      <p>Led 4 client engineers on Travel Crush; before that built its match-3 engine, live-ops and social systems, and earlier the deterministic physics and prediction netcode behind Super Jump League.</p>
+    </div>
+
+    <div class="job">
+      <div class="head"><span class="title">Unity / C# Software Engineer</span><span class="dates">Aug 2022 – Jun 2023</span></div>
+      <div class="org">Ankr · Remote</div>
+      <p>Sole Unity engineer on a cross-platform Web3 SDK; ASP.NET backend services afterwards.</p>
+    </div>
+
+    <div class="job">
+      <div class="head"><span class="title">Unity / C# Software Engineer</span><span class="dates">Aug 2015 – Jun 2016</span></div>
+      <div class="org">Crazy Panda · Moscow</div>
+      <p>Procedural galaxy generation and quad-tree infinite zoom on Stellar Age.</p>
+    </div>
+
+    <div class="job">
+      <div class="head"><span class="title">C++ Software Engineer</span><span class="dates">May 2014 – Dec 2014</span></div>
+      <div class="org">Biart · Moscow</div>
+      <p>Gameplay and engine work on Depth Hunter 2: Deep Dive, released on Steam.</p>
+    </div>
+
+    <div class="job">
+      <div class="head"><span class="title">MS, Ballistics and Aerodynamics</span><span class="dates">2007 – 2013</span></div>
+      <div class="org">Bauman Moscow State Technical University</div>
+      <p>Thesis on optimal out-of-plane orbital transfer, LEO to GEO, via Lambert's problem.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap">
+    <h2>Contact</h2>
+    <p>
+      Based in Tbilisi (UTC+4), with a registered company and bank account for USD / EUR invoicing.
+      Seven years of overlap with US Pacific teams.
+    </p>
+    <div class="links">
+      <a class="btn primary" href="mailto:chaincastsystems@gmail.com">chaincastsystems@gmail.com</a>
+      <a class="btn" href="https://github.com/Antivortex">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/antivortex/">LinkedIn</a>
+      <a class="btn" href="https://medium.com/@chaincastsystems">Medium</a>
+      <a class="btn" href="Anton_Vikharev_Resume.pdf">Résumé (PDF)</a>
+    </div>
+    <div class="colophon">Built as a static page. No trackers, no analytics.</div>
+  </div>
+</footer>
+
+</body>
+</html>
