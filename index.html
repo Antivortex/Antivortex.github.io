@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Anton Vikharev — Unity &amp; AI-Assisted Engineer</title>
+<title>Anton Vikharev — Senior Unity Engineer</title>
 <meta name="description" content="Unity gameplay and systems engineer — 12 years in software, 7 remote with a US studio. Deterministic netcode, custom 2D physics, game AI, live-ops. Now building agent-first.">
-<meta property="og:title" content="Anton Vikharev — Unity &amp; AI-Assisted Engineer">
+<meta property="og:title" content="Anton Vikharev — Senior Unity Engineer">
 <meta property="og:description" content="Unity gameplay and systems engineer. Shipped 4 commercial games including Travel Crush (1M+ downloads). Now building agent-first.">
 <meta property="og:type" content="website">
 <style>
@@ -254,6 +254,10 @@
   .job .dates { font-size: 0.82rem; color: var(--muted); white-space: nowrap; }
   .job .org { font-size: 0.88rem; color: var(--accent-soft); font-weight: 600; margin-bottom: 6px; }
   .job p { font-size: 0.92rem; color: #cdd1d9; }
+  .job ul { padding-left: 18px; }
+  .job li { font-size: 0.92rem; color: #cdd1d9; margin-bottom: 6px; }
+  .job .position { margin-top: 14px; }
+  .job .position .title { font-size: 0.94rem; }
 
   /* ---------------- Skills ---------------- */
   .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
@@ -297,7 +301,7 @@
     <img src="photo.jpeg" alt="Anton Vikharev">
     <div class="hero-text">
       <h1>Anton Vikharev</h1>
-      <div class="role">Unity Senior Engineer · AI-Assisted Engineer</div>
+      <div class="role">Senior Unity Engineer | Gameplay, Multiplayer &amp; AI-Assisted Development</div>
       <p class="pitch">
         12 years in software, 7 of them remote with a US studio in Menlo Park. Shipped 4 commercial
         games — including <strong>Travel Crush</strong>, 1M+ downloads — plus a cross-platform Unity
@@ -338,14 +342,14 @@
         <div class="meta">BebopBee · Match-3 mobile game · 1M+ downloads</div>
         <div class="tags">
           <span class="tag">Unity</span><span class="tag">C#</span><span class="tag">Python</span>
-          <span class="tag">Addressables</span><span class="tag">Redis</span><span class="tag">BrainCloud</span>
+          <span class="tag">AssetBundles</span><span class="tag">Redis</span><span class="tag">BrainCloud</span>
         </div>
         <ul>
           <li>Built the core match-3 engine and an in-editor level designer, so designers could play and tune levels without leaving Unity</li>
           <li>Dynamic difficulty system that auto-balances levels against player skill</li>
           <li>AI-driven automated level playtesting for bug detection and difficulty analytics</li>
           <li>Live-ops event system enabling no-code content delivery</li>
-          <li>Custom Addressables layer for grouping and background-downloading asset bundles</li>
+          <li>Custom AssetBundle delivery system for grouping and background-downloading assets, built before Unity Addressables was released</li>
           <li>Social stack across Unity client and Python backend: friends graph, notifications, Redis leaderboards, player gifts</li>
           <li>As tech lead: team of 4, plus a backend migration from Python/Tornado to BrainCloud BaaS</li>
         </ul>
@@ -368,7 +372,7 @@
           <li>Networking engine with client-side prediction and latency compensation</li>
           <li>A* pathfinding with behaviour trees for bot AI, fully synchronized across clients</li>
           <li>Cheat detection via Photon server plugins; lobby with bots backfilling low-population hours</li>
-          <li>Cut build size by 50% in one week; drove a bug-free soft launch</li>
+          <li>Cut build size by 50% in one week; drove soft-launch readiness through systematic QA and polish</li>
         </ul>
         <div class="foot"><a class="repo-link" href="https://www.youtube.com/watch?v=XPjxf_AZ9sg">Watch gameplay</a></div>
       </article>
@@ -423,12 +427,12 @@
 
       <article class="card">
         <h3>MMO Architecture Prototype</h3>
-        <div class="meta">Own practice · 1,000 concurrent players</div>
+        <div class="meta">Own practice · 1,000 concurrent players in load testing</div>
         <div class="tags">
           <span class="tag">Unity ECS / DOTS</span><span class="tag">C#</span><span class="tag">Custom server</span>
         </div>
         <ul>
-          <li>Prototyped an MMO architecture sustaining 1,000 concurrent players on a custom ECS backend server with a Unity ECS client</li>
+          <li>Prototyped an MMO architecture with a custom ECS backend server and Unity ECS client, sustaining 1,000 concurrent players in load testing</li>
           <li>Built in 32 hours as an agent-driven coding experiment, written up in full</li>
         </ul>
         <div class="foot"><a class="repo-link" href="https://medium.com/@chaincastsystems/vibe-coding-experiment-building-a-1000-player-mmo-prototype-in-32-hours-3719eb1f5bb3">Read the write-up</a></div>
@@ -524,13 +528,13 @@
         <div class="meta">$10,000 bug bounty · Polymarket's oracle</div>
         <p>
           Found a high-severity denial-of-service vulnerability in the schedule queue of UMA's DVM
-          contracts — code that had already been audited by top security firms. Published with a
+          contracts. Published with a
           Foundry proof-of-concept and a full write-up.
         </p>
         <div class="tags"><span class="tag">Solidity</span><span class="tag">Foundry</span><span class="tag">DoS</span></div>
         <div class="foot">
           <a class="repo-link" href="https://github.com/Antivortex/uma-vuln-poc">PoC repo</a>
-          <a class="repo-link" href="https://github.com/Antivortex/audits-and-bounties">Write-up</a>
+          <a class="repo-link" href="https://medium.com/@chaincastsystems/bug-bounty-1-umas-dvm-contract-schedule-queue-dos-7065d3100694">Write-up</a>
         </div>
       </article>
 
@@ -576,36 +580,48 @@
 <section id="experience">
   <div class="wrap">
     <h2>Experience</h2>
-    <p class="section-lede">The full version lives in the résumé PDF.</p>
+    <p class="section-lede">The full version lives in the <a href="Anton_Vikharev_Resume.pdf">résumé PDF</a>.</p>
 
     <div class="job">
-      <div class="head"><span class="title">AI-Assisted Engineer</span><span class="dates">Mar 2026 – Present</span></div>
-      <div class="org">TutorEge · Saint Petersburg</div>
-      <p>Leading an AI-native production CRM build, from stakeholder discovery through delivery.</p>
-    </div>
-
-    <div class="job">
-      <div class="head"><span class="title">Independent Unity &amp; Backend Engineer</span><span class="dates">Aug 2024 – Mar 2026</span></div>
+      <div class="head"><span class="title">Independent Unity &amp; Backend &amp; AI Engineer</span><span class="dates">Aug 2024 – Present</span></div>
       <div class="org">Own practice — contract engineering · Remote</div>
-      <p>MMO architecture prototyping, a match-3 vertical slice for a startup, an AI-assisted engineering practice for C#/Unity codebases, and a $10k smart-contract bug bounty.</p>
+      <ul>
+        <li>Prototyped an MMO architecture with a custom ECS backend server and Unity ECS client, sustaining 1,000 concurrent players in load testing.</li>
+        <li>Built a playable match-3 vertical slice in Unity for Banana Games.</li>
+        <li>Built an AI-assisted engineering practice for C# / Unity codebases, including agent-driven refactors, test generation and tooling.</li>
+        <li>Developed a production CRM from stakeholder discovery to delivery using Next.js, Express, PostgreSQL and Docker. Orchestrated Claude Code agents with spec-first workflows, automated review and regression gates, and designed UI/UX around existing business processes.</li>
+        <li>Built and launched two commercial Telegram bots with .NET, PostgreSQL and Docker, and created a reusable .NET backend framework.</li>
+        <li>Discovered a high-severity vulnerability in UMA Protocol's Solidity smart contracts, earning a $10,000 bug bounty. <a href="https://medium.com/@chaincastsystems/bug-bounty-1-umas-dvm-contract-schedule-queue-dos-7065d3100694">Read the write-up</a>.</li>
+      </ul>
     </div>
 
     <div class="job">
-      <div class="head"><span class="title">Unity Tech Lead → Fullstack Engineer → Software Engineer</span><span class="dates">Jul 2016 – Aug 2024</span></div>
-      <div class="org">BebopBee, Inc. · Menlo Park, CA — fully remote · 7 years, three tenures</div>
-      <p>Led 4 client engineers on Travel Crush; before that built its match-3 engine, live-ops and social systems, and earlier the deterministic physics and prediction netcode behind Super Jump League.</p>
+      <div class="head"><span class="title">BebopBee, Inc.</span><span class="dates">Jul 2016 – Aug 2024</span></div>
+      <div class="org">Menlo Park, CA — fully remote · 7 years, three tenures</div>
+      <div class="position">
+        <div class="head"><span class="title">Unity Tech Lead</span><span class="dates">Aug 2023 – Aug 2024</span></div>
+        <p>Led four client engineers on Travel Crush (1M+ downloads), owning architecture and implementation plans. Migrated the backend from Python / Tornado to BrainCloud, shipped live-ops events, built procedural animation tooling, and ran technical interviews and sprint planning.</p>
+      </div>
+      <div class="position">
+        <div class="head"><span class="title">Unity / C# / Python Fullstack Engineer</span><span class="dates">Mar 2018 – Aug 2022</span></div>
+        <p>Built Travel Crush's core match-3 engine, in-editor level designer, dynamic difficulty and automated playtesting. Developed no-code live-ops, a custom AssetBundle delivery system, and social features across the Unity client and Python backend; optimized UI rendering and integrated sign-in and video playback.</p>
+      </div>
+      <div class="position">
+        <div class="head"><span class="title">Unity / C# Software Engineer</span><span class="dates">Jul 2016 – Mar 2018</span></div>
+        <p>Built Super Jump League's deterministic 2D physics, client-side prediction and latency compensation, synchronized bot AI, cheat detection, multiplayer lobby and progression systems. Cut build size by 50% in one week and drove soft-launch readiness through systematic QA and polish.</p>
+      </div>
     </div>
 
     <div class="job">
       <div class="head"><span class="title">Unity / C# Software Engineer</span><span class="dates">Aug 2022 – Jun 2023</span></div>
       <div class="org">Ankr · Remote</div>
-      <p>Sole Unity engineer on a cross-platform Web3 SDK; ASP.NET backend services afterwards.</p>
+      <p>Sole Unity engineer on a cross-platform Web3 SaaS SDK, including WebGL; shipped one month ahead of platform launch. Integrated transaction-processing APIs and contributed to ASP.NET backend services using PostgreSQL, Entity Framework Core and RabbitMQ.</p>
     </div>
 
     <div class="job">
       <div class="head"><span class="title">Unity / C# Software Engineer</span><span class="dates">Aug 2015 – Jun 2016</span></div>
       <div class="org">Crazy Panda · Moscow</div>
-      <p>Procedural galaxy generation and quad-tree infinite zoom on Stellar Age.</p>
+      <p>Built procedural galaxy generation for 100,000+ planets, quad-tree rendering for smooth infinite zoom, and Editor extensions for validating game-design math on Stellar Age.</p>
     </div>
 
     <div class="job">
@@ -615,7 +631,7 @@
     </div>
 
     <div class="job">
-      <div class="head"><span class="title">MS, Ballistics and Aerodynamics</span><span class="dates">2007 – 2013</span></div>
+      <div class="head"><span class="title">MS, Ballistics and Aerodynamics</span><span class="dates">Sep 2007 – Jun 2013</span></div>
       <div class="org">Bauman Moscow State Technical University</div>
       <p>Thesis on optimal out-of-plane orbital transfer, LEO to GEO, via Lambert's problem.</p>
     </div>
