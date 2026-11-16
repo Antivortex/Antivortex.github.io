@@ -411,6 +411,25 @@
         <div class="foot"><a class="repo-link" href="https://www.youtube.com/watch?v=aOR0-VEUKw8">Watch gameplay</a></div>
       </article>
 
+      <article class="card">
+        <h3>Tutor CRM for an Exam-Prep School</h3>
+        <div class="meta">Freelance · Full-stack web app for a Russian tutoring centre</div>
+        <div class="tags">
+          <span class="tag">TypeScript</span><span class="tag">Next.js</span><span class="tag">Express</span>
+          <span class="tag">Prisma</span><span class="tag">PostgreSQL</span><span class="tag">Zod</span>
+          <span class="tag">Docker</span><span class="tag">Caddy</span>
+        </div>
+        <ul>
+          <li>One system for students, teachers, tuition agreements, lesson scheduling and finances</li>
+          <li>Lesson calendar with one-off and recurring lessons, group lessons, teacher substitutions and an 8-state lesson lifecycle</li>
+          <li>Payments and teacher payouts tracked in integer kopecks, with payroll computed automatically from held lessons</li>
+          <li>Role-based access for admins, managers and teachers; editing or deleting any money transaction requires typing the person's full name to confirm</li>
+          <li>Portfolio demo mode: one-click guest login with full admin rights. PostgreSQL triggers log every guest change, and the owner can roll them all back in one transaction</li>
+          <li>pnpm monorepo sharing Zod schemas across API and UI; integration tests on a real database via Vitest + Testcontainers; deployed with Docker behind Caddy with automatic HTTPS</li>
+        </ul>
+        <div class="foot"><a class="repo-link" href="https://tutor-ege-crm.duckdns.org">Live demo — “Login as demo guest”</a></div>
+      </article>
+
     </div>
   </div>
 </section>
@@ -436,6 +455,25 @@
           <li>Built in 32 hours as an agent-driven coding experiment, written up in full</li>
         </ul>
         <div class="foot"><a class="repo-link" href="https://medium.com/@chaincastsystems/vibe-coding-experiment-building-a-1000-player-mmo-prototype-in-32-hours-3719eb1f5bb3">Read the write-up</a></div>
+      </article>
+
+      <article class="card">
+        <h3>Legal Assistant — RAG over Russian Law</h3>
+        <div class="meta">Own practice · Chat assistant for the Russian Constitution and Labour Code</div>
+        <div class="tags">
+          <span class="tag">TypeScript</span><span class="tag">Next.js 15</span><span class="tag">Vercel AI SDK</span>
+          <span class="tag">Fastify</span><span class="tag">PostgreSQL</span><span class="tag">Qdrant</span>
+          <span class="tag">Claude</span><span class="tag">GPT</span><span class="tag">Cohere Rerank</span>
+          <span class="tag">Python</span><span class="tag">Docker</span>
+        </div>
+        <ul>
+          <li>Answers questions grounded strictly in the text of the law, citing the specific articles behind every answer</li>
+          <li>Data pipeline: legal texts scraped from consultant.ru, cleaned and chunked along the document structure (part → section → chapter → article), each chunk enriched with LLM-generated context (contextual retrieval), with cross-references between articles preserved</li>
+          <li>Retrieval: history-aware query rewriting, then hybrid search in Qdrant with RRF fusion, Cohere reranking and expansion along cross-referenced articles</li>
+          <li>Generation: the LLM answers only from the retrieved sources and streams to the UI, with a fallback model for reliability</li>
+          <li>Every article mention in an answer (“Article 80 of the Labour Code”, “Articles 38–46”) is a link that opens the full text in an in-chat side panel, with neighbour-article navigation and browser Back support</li>
+        </ul>
+        <div class="foot"><a class="repo-link" href="https://rag-proto.duckdns.org">Live demo</a></div>
       </article>
 
     </div>
